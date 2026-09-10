@@ -4,15 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Comunidade 111 - Ronfe</title>
-<meta name="theme-color" content="#155a93">
-<meta name="description" content="Comunidade 111 - Ronfe · III Secção · Pioneiros">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Comunidade 111">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1532,16 +1523,9 @@ function printAgendaFallback(ev,number){
   const items=(ev.agenda||[]).map((x,i)=>'<div class="item"><b>'+(i+1)+'.</b><span>'+escapeHtml(x.text||'')+'</span></div>').join('');
   const w=window.open('','_blank');
   if(!w){ alert('O navegador bloqueou a janela de impressão. Permite pop-ups para esta página e tenta novamente.'); return; }
+  w.onload=function(){setTimeout(function(){w.print()},250)};
   w.document.write(`<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><title>${title}${number}</title><style>
-  @page{size:A4;margin:0}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#1c2126}.page{position:relative;width:210mm;min-height:297mm;padding:14mm 14mm 30mm}.top{display:flex;justify-content:space-between;align-items:flex-start;height:27mm;border-bottom:1px solid #ddd8cd}.agr{width:68mm;height:auto}.bridge{width:40mm;height:40mm;object-fit:contain;margin-top:0}.content{padding-top:10mm}.title{font-size:20px;font-weight:700;margin-bottom:11mm}.line{font-size:14px;margin-bottom:7mm}.label{font-weight:700}.intro{font-size:14px;line-height:1.45;margin-bottom:8mm;max-width:155mm}.agenda-title{font-size:14px;font-weight:700;margin-bottom:5mm}.item{display:flex;gap:5mm;font-size:14px;line-height:1.45;margin:0 0 4mm 10mm}.item b{min-width:7mm}.footer{position:absolute;left:0;right:0;bottom:0;height:28mm;overflow:hidden}.b{position:absolute;left:-5%;width:110%;height:7mm;border-radius:50% 50% 0 0/100% 100% 0 0}.r{bottom:21mm;background:#eb1419}.bl{bottom:15mm;background:#0069be}.g{bottom:9mm;background:#00aa55}.y{bottom:4mm;background:#ffe600}.n{bottom:-2mm;background:#1c375b}</style></head><body><div class="page"><div class="top"><img class="agr" src="${agrLogo}"><img class="bridge" src="${bridgeLogo}"></div><div class="content"><div class="title">${title}${number}</div><div class="line"><span class="label">ASSUNTO:</span> ${subject}</div><div class="intro"><span class="label">${ev.type==='guias'?'Guia de Comunidade:':'Chefe de unidade:'}</span> Venho convocar a reunião de ${tipo}, para o dia ${dateText}, pelas ${escapeHtml(hora)}, que se realizará na ${escapeHtml(location)}</div><div class="agenda-title">Ordem de Trabalhos:</div>${items || '<div class="item">(Ordem de trabalhos)</div>'}</div><div class="footer"><div class="b r"></div><div class="b bl"></div><div class="b g"></div><div class="b y"></div><div class="b n"></div></div></div><script>window.onload=function(){setTimeout(function(){window.print()},250)};<\/script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('PWA:', err));
-  });
-}
-</script>
-</body></html>`);
+  @page{size:A4;margin:0}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#1c2126}.page{position:relative;width:210mm;min-height:297mm;padding:14mm 14mm 30mm}.top{display:flex;justify-content:space-between;align-items:flex-start;height:27mm;border-bottom:1px solid #ddd8cd}.agr{width:68mm;height:auto}.bridge{width:40mm;height:40mm;object-fit:contain;margin-top:0}.content{padding-top:10mm}.title{font-size:20px;font-weight:700;margin-bottom:11mm}.line{font-size:14px;margin-bottom:7mm}.label{font-weight:700}.intro{font-size:14px;line-height:1.45;margin-bottom:8mm;max-width:155mm}.agenda-title{font-size:14px;font-weight:700;margin-bottom:5mm}.item{display:flex;gap:5mm;font-size:14px;line-height:1.45;margin:0 0 4mm 10mm}.item b{min-width:7mm}.footer{position:absolute;left:0;right:0;bottom:0;height:28mm;overflow:hidden}.b{position:absolute;left:-5%;width:110%;height:7mm;border-radius:50% 50% 0 0/100% 100% 0 0}.r{bottom:21mm;background:#eb1419}.bl{bottom:15mm;background:#0069be}.g{bottom:9mm;background:#00aa55}.y{bottom:4mm;background:#ffe600}.n{bottom:-2mm;background:#1c375b}</style></head><body><div class="page"><div class="top"><img class="agr" src="${agrLogo}"><img class="bridge" src="${bridgeLogo}"></div><div class="content"><div class="title">${title}${number}</div><div class="line"><span class="label">ASSUNTO:</span> ${subject}</div><div class="intro"><span class="label">${ev.type==='guias'?'Guia de Comunidade:':'Chefe de unidade:'}</span> Venho convocar a reunião de ${tipo}, para o dia ${dateText}, pelas ${escapeHtml(hora)}, que se realizará na ${escapeHtml(location)}</div><div class="agenda-title">Ordem de Trabalhos:</div>${items || '<div class="item">(Ordem de trabalhos)</div>'}</div><div class="footer"><div class="b r"></div><div class="b bl"></div><div class="b g"></div><div class="b y"></div><div class="b n"></div></div></div></body></html>`);
   w.document.close();
 }
 
