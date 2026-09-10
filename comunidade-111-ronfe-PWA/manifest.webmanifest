@@ -1,0 +1,16 @@
+{
+  "name": "Comunidade 111 - Ronfe",
+  "short_name": "Comunidade 111",
+  "description": "Comunidade de Pioneiros · III Secção · Ronfe",
+  "lang": "pt-PT",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#eef6fb",
+  "theme_color": "#155a93",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
